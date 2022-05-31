@@ -1,0 +1,30 @@
+def logic_circ():
+    p = int(input("Enter p value: "))
+    q = int(input("Enter q value: "))
+    if p - q == 1:
+       return(1)
+    elif p - q == 2:
+        return(1)
+    elif p + q == 1:
+        return(1)
+    elif p + q == 2:
+        return(1)
+    else:
+        return(0)
+
+
+count1 = 0
+count0 = 0
+
+while count1 != 6:
+    output = (logic_circ())
+    print(output)
+    if output == 1:
+        count1 += 1
+    elif output == 0:
+        count0 += 1
+    if count0 == 3:
+        print("Simulation reset.")
+        count1 = 0
+        count0 = 0
+print("Simulation stopped.")
