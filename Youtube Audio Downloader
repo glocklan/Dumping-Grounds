@@ -1,0 +1,14 @@
+from pytube import YouTube
+from pytube.cli import on_progress
+
+def download_youtube(url):
+    yt = YouTube(url, on_progress_callback=on_progress)
+    print(f"Now Downloading {yt.title}... ")
+    yt.streams.filter(only_audio=True)
+    stream = yt.streams.get_by_itag(139)
+    stream.download()
+    print("Download complete. ")
+
+print("This is a program that will let you download youtube videos as mp4 files with audio only.")
+i = input("Paste Youtube url here: ")
+download_youtube(i)
